@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuite name="com.placeholder.company.project.scoring.EventControllerTest" time="3.359" tests="1" errors="1" skipped="0" failures="0">
+    <testcase name="testEventResult" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.282">
+        <failure>Request processing failed; nested exception is java.lang.NullPointerException</failure>
+    </testcase>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuite name="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="3.013" tests="8" errors="0" skipped="0" failures="0">
+    <testcase name="testAuthValueAsNull" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.017"/>
+    <testcase name="testAuthValueAsRandomString" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.013"/>
+    <testcase name="testAuthValueAsWhiteSpace" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.005"/>
+    <testcase name="testEncodedBasicAuthentication" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.006"/>
+    <testcase name="testEncodedBasicAuthenticationWithInvalidPassword" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.003"/>
+    <testcase name="testEncodedBasicAuthenticationWithInvalidUsername" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.003"/>
+    <testcase name="testUnencodedAuthentication" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.002"/>
+    <testcase name="testUnencodedBasicAuthentication" classname="com.placeholder.company.project.scoring.BasicAccessAuthenticationTest" time="0.003"/>
+</testsuite>
