@@ -1,5 +1,6 @@
 package com.placeholder.company.project.rest.controller;
 
+import com.placeholder.company.project.rest.api.AdminAuthenticationRequest;
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -32,16 +33,19 @@ public class AdminAuthenticationController extends AbstractController {
 	}
 
 	@RequestMapping( value = "/admin/authentication", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity register( @RequestHeader( value = HttpHeaders.AUTHORIZATION, required = false ) String authorization, @RequestBody String request ) {
+	public ResponseEntity register( @RequestHeader( value = HttpHeaders.AUTHORIZATION, required = false ) String authorization, @RequestBody AdminAuthenticationRequest request ) {
 		try {
 			validateAuthorizationHeader( authorization );
 			BasicAccessAuthentication authentication = BasicAccessAuthentication.parseAuthorizationHeader( authorization );
-
-
+			String token = BasicAccessAuthentication.getToken(authorization);
 			Admin admin = this.adminService.getAdminByUsername( authentication.getUsername() );
+//			System.out.println(request);
 			if(admin == null){
-				adminService.createAdmin(new Admin(authentication.getUsername(),
-						authentication.getPassword(), request));
+				Admin newAdmin = new Admin(authentication.getUsername(),
+						authentication.getPassword(), request.getCreateOnDemand().getEmail());
+				newAdmin.setToken(token);
+				System.out.println(newAdmin);
+				adminService.createAdmin(newAdmin);
 			}
 			else {
 				if (!admin.isAdminAuthenticated(authentication)) {
@@ -49,13 +53,9 @@ public class AdminAuthenticationController extends AbstractController {
 				}
 			}
 			AdminAuthenticationResponse response = new AdminAuthenticationResponse();
-			response.setErrorCode(ErrorCode.OK);
-			// Not sure how to get the same token next time...
-      // response.setToken( RandomStringUtils.randomAlphanumeric(36) );
-      String token = authentication.getToken();
       response.setToken( token );
-      // admin.setToken( token );
-			return ResponseEntity
+	  response.setErrorCode(ErrorCode.OK);
+	  			return ResponseEntity
 					.ok()
 					.body( response );
 		} catch ( GeneralHttpException exception ) {

@@ -1,11 +1,14 @@
 package com.placeholder.company.project.db.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import com.placeholder.company.project.rest.controller.tools.BasicAccessAuthentication;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.bouncycastle.util.encoders.Base64Encoder;
 
 @Entity
 public class Admin implements Serializable {
@@ -45,8 +48,21 @@ public class Admin implements Serializable {
 		this.token = token;
 	}
 
-	public boolean isAdminAuthenticated( BasicAccessAuthentication authentication ) {
+	@Override
+	public String toString() {
+		return "Admin{" +
+				"username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", token='" + token + '\'' +
+				'}';
+	}
 
-		return this.username.equals( authentication.getUsername() ) && this.password.equals( authentication.getPassword() );
+	public boolean isAdminAuthenticated(BasicAccessAuthentication authentication ) {
+		return Objects.equals(
+				BasicAccessAuthentication.getToken(authentication.getAuthentication()),
+				BasicAccessAuthentication.getToken("Basic " + Base64.encodeBase64String(
+						( String.format( "%s:%s", this.username, this.password ) ).getBytes()))
+		);
 	}
 }

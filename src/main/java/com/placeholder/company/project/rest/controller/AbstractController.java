@@ -21,13 +21,25 @@ public abstract class AbstractController {
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(value);
 		if(!m.matches()){
+				throw new GeneralHttpException( HttpStatus.UNAUTHORIZED, ErrorCode.INVALID, "Invalid header" );
+		}
+	}
+
+	protected void validateToken( String value ) throws GeneralHttpException {
+		if (Strings.isNullOrEmpty(value)) {
+			throw new GeneralHttpException( HttpStatus.UNAUTHORIZED, ErrorCode.AUTHENTICATION, "Unauthorized request. Value for header 'Authorization' cannot be null." );
+		}
+		String regex = "^[^:]+$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(value);
+		if(!m.matches()){
 			throw new GeneralHttpException( HttpStatus.UNAUTHORIZED, ErrorCode.AUTHENTICATION, "Invalid header" );
 		}
 	}
 
 	protected void validateNotNull( String field, Object value) throws GeneralHttpException {
 		if ( Objects.isNull(field) || Objects.isNull(value)) {
-			throw new GeneralHttpException( HttpStatus.BAD_REQUEST, ErrorCode.INVALID, String.format( "Invalid request. Value for field '%s' cannot be null.", field ) );
+			throw new GeneralHttpException( HttpStatus.OK, ErrorCode.INVALID, String.format( "Invalid request. Value for field '%s' cannot be null.", field ) );
 		}
 	}
 }

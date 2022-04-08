@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuite name="com.placeholder.company.project.scoring.PingTest" time="0.011" tests="1" errors="0" skipped="0" failures="0">
+    <testcase name="testPing" classname="com.placeholder.company.project.scoring.PingTest" time="0.007"/>
+</testsuite>

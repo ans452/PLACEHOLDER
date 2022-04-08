@@ -35,6 +35,16 @@ public class Checkpoint implements Serializable, Comparable<Checkpoint> {
 		this.durationInMillis = durationInMillis;
 	}
 
+	@Override
+	public String toString() {
+		return "Checkpoint{" +
+				"messageId=" + messageId +
+				", eventId=" + eventId +
+				", registrationNumber=" + registrationNumber +
+				", durationInMillis=" + durationInMillis +
+				'}';
+	}
+
 	public Long getMessageId() {
 		return messageId;
 	}
@@ -49,6 +59,22 @@ public class Checkpoint implements Serializable, Comparable<Checkpoint> {
 
 	public Long getDurationInMillis() {
 		return durationInMillis;
+	}
+
+	public void setMessageId(Long messageId) {
+		this.messageId = messageId;
+	}
+
+	public void setEventId(Long eventId) {
+		this.eventId = eventId;
+	}
+
+	public void setRegistrationNumber(Long registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
+
+	public void setDurationInMillis(Long durationInMillis) {
+		this.durationInMillis = durationInMillis;
 	}
 
 	@Override
@@ -75,6 +101,15 @@ public class Checkpoint implements Serializable, Comparable<Checkpoint> {
 			this.messageId = messageId;
 			this.eventId = eventId;
 			this.registrationNumber = registrationNumber;
+		}
+
+		@Override
+		public String toString() {
+			return "CheckpointId{" +
+					"messageId=" + messageId +
+					", eventId=" + eventId +
+					", registrationNumber=" + registrationNumber +
+					'}';
 		}
 
 		@Override

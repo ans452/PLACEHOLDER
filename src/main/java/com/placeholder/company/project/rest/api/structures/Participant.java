@@ -37,7 +37,7 @@ public class Participant {
 	@NotNull
 	private List<Long> checkpointTimes;
 
-	public Long getRegistrationNumber() {
+	public  Long getRegistrationNumber() {
 		return registrationNumber;
 	}
 

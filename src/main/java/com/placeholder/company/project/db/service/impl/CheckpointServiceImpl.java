@@ -26,10 +26,12 @@ public class CheckpointServiceImpl implements CheckpointService {
 
 	@Override
 	public void createOrUpdateCheckpoint( Checkpoint checkpoint ) {
-		Checkpoint existingCheckPoint = getCheckpointByIds( checkpoint.getMessageId(), checkpoint.getEventId(), checkpoint.getRegistrationNumber() );
-		System.out.println( "Updating existing checkpoint: " + existingCheckPoint );
 
-		checkpointRepository.save( checkpoint );
+			Checkpoint existingCheckPoint = getCheckpointByIds(checkpoint.getMessageId(), checkpoint.getEventId(), checkpoint.getRegistrationNumber());
+			System.out.println("Updating existing checkpoint: " + existingCheckPoint);
+			checkpointRepository.save(checkpoint);
+
+
 	}
 
 	@Override

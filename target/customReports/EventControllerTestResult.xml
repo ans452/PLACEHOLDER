@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<testsuite name="com.placeholder.company.project.scoring.EventControllerTest" time="3.359" tests="1" errors="1" skipped="0" failures="0">
-    <testcase name="testEventResult" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.282">
-        <failure>Request processing failed; nested exception is java.lang.NullPointerException</failure>
-    </testcase>
+<testsuite name="com.placeholder.company.project.scoring.EventControllerTest" time="0.692" tests="17" errors="0" skipped="0" failures="0">
+    <testcase name="testEventRegisterFailsWithExistingEventId" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.157"/>
+    <testcase name="testEventRegisterOkWithInjectedToken" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.013"/>
+    <testcase name="testEventRegisterUnauthorizedWithIncorrectToken" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.008"/>
+    <testcase name="testEventRegisterUnauthorizedWithoutToken" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.007"/>
+    <testcase name="testEventResult" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.048"/>
+    <testcase name="testEventResultUnauthorizedWithIncorrectToken" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.008"/>
+    <testcase name="testEventResultUnauthorizedWithoutToken" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.006"/>
+    <testcase name="testEventResultUnauthorizedWithoutTokenWithContent" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.011"/>
+    <testcase name="testEventResultWithNonExistingEvent" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.012"/>
+    <testcase name="testReportEvent" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.054"/>
+    <testcase name="testReportEventBySortedParticipants" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.055"/>
+    <testcase name="testReportEventBySortedParticipantsWithMultipleResults" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.113"/>
+    <testcase name="testReportEventByTopParticipants" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.048"/>
+    <testcase name="testReportEventWithMultipleParticipants" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.06"/>
+    <testcase name="testReportEventWithNonExistingEvent" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.008"/>
+    <testcase name="testReportEventWithSingleParticipant" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.031"/>
+    <testcase name="testReportEventWithoutEventId" classname="com.placeholder.company.project.scoring.EventControllerTest" time="0.006"/>
 </testsuite>

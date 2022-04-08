@@ -65,11 +65,11 @@ public class BasicAccessAuthentication {
 		return new BasicAccessAuthentication( authHeader, authentication[0], authentication[1] );
   }
   
-  public String getToken() {
+  public static String getToken(String authentication) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			byte[] hash = digest.digest(
-					this.authentication.getBytes(StandardCharsets.UTF_8));
+					authentication.getBytes(StandardCharsets.UTF_8));
 			return new String(Hex.encode(hash)).substring(0,36);
 		}
 		catch(Exception e) {
@@ -113,6 +113,6 @@ public class BasicAccessAuthentication {
 
 	public static void main(String[] args) throws GeneralHttpException, NoSuchAlgorithmException {
 		BasicAccessAuthentication basicAccessAuthentication = parseAuthorizationHeader("Basic dXNlcm5hbWU6cGFzc3dvcmQ=");
-		System.out.println(basicAccessAuthentication.getToken().length());
+		System.out.println(getToken(basicAccessAuthentication.getAuthentication()).length());
 	}
 }
